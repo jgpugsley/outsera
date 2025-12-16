@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "1f21068c-7291-4911-8cfc-aae6b37ea04e",
+		"name": "Filme",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10316712"
+	},
+	"item": [
+		{
+			"name": "Upload Arquivo",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Intervalos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
