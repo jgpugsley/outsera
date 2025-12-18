@@ -17,7 +17,7 @@ import com.univocity.parsers.csv.CsvParserSettings;
 import br.com.teste.piorfilme.entity.Filme;
 import br.com.teste.piorfilme.repositories.FilmeRepository;
 
-//@Component
+@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -27,14 +27,14 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         // Verifica se já existem dados no banco
         if (filmeRepository.count() > 0) {
-            System.out.println("✅ Banco já possui dados. Carregamento ignorado.");
+            System.out.println("Banco já possui dados. Carregamento ignorado.");
             return;
         }
 
-        System.out.println("📂 Carregando dados do CSV...");
+        System.out.println("Carregando dados do CSV...");
 
         // Lê o arquivo CSV da pasta resources
-        ClassPathResource resource = new ClassPathResource("arquivo.csv");
+        ClassPathResource resource = new ClassPathResource("movielist.csv");
         InputStream inputStream = resource.getInputStream();
 
         // Configura o parser
@@ -45,7 +45,7 @@ public class DataLoader implements ApplicationRunner {
         CsvParser parser = new CsvParser(settings);
         List<Record> records = parser.parseAllRecords(inputStream);
 
-        System.out.println("📊 Total de registros lidos: " + records.size());
+        System.out.println("Total de registros lidos: " + records.size());
 
         // Converte para entidades
         List<Filme> filmes = new ArrayList<>();
@@ -64,6 +64,6 @@ public class DataLoader implements ApplicationRunner {
         // Salva no banco
         filmeRepository.saveAll(filmes);
         
-        System.out.println("✅ " + filmes.size() + " filmes carregados com sucesso!");
+        System.out.println("-> " + filmes.size() + " filmes carregados com sucesso!");
     }
 }
