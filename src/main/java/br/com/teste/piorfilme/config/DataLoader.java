@@ -27,7 +27,7 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         // Verifica se já existem dados no banco
         if (filmeRepository.count() > 0) {
-            System.out.println("Banco já possui dados. Carregamento ignorado.");
+            System.out.println("Banco já possui dados. Carregamento ignorado!");
             return;
         }
 
